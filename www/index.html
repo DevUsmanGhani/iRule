@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+
+
+
+<html>
+    <head>
+
+        
+        <meta charset="utf-8">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        
+
+     
+        <title>iRule</title>
+
+    </head>
+
+    <body style="background-color: #7C8140">
+        <div class="container  h-100">  
+                        <!--The top header with all information about gold/miners/miningpower-->
+            <nav class="navbar-fixed-top navbar-inverse">
+                <div class="container">
+                    <ul class="nav navbar-nav" style="color:gold; font-family: fantasy; font-size: 24px">
+                        <li><span style="color:white"> Gold: </span><span id="goldCount"> </span> </li>
+                        <li><span style="color:white"> Mining Power: </span><span style="color:red" id="miningPower"> </span></li>
+                        <li><span style="color:white"> Miners: </span> <span style="color:royalblue" id="minersCount"> </span></li>
+                    </ul>
+                </div>
+            </nav>     
+
+                        <!--The main interactable interface-->
+            <div class="row justify-content-center align-self-center vertical-center center-block" style ="margin-top: 33%" id="content">
+                
+                <!--Kingdom screen-->
+                <div class="center-block" id="kingdomScreen" style="display:block;">
+                    <img id="kingdom1" src="img/kingdom1.png">
+                    <img id="kingdom2" src="img/kingdom2.png" style="display:none">
+                    <img id="kingdom3" src="img/kingdom3.png" style="display:none">
+                    <img id="kingdom4" src="img/kingdom4.png" style="display:none">
+                </div> 
+                 
+                <!--The mining screen-->
+                <div class="mine" id="mineScreen" style="display:none;">
+                    <img src="img/mineIcon.png" style="max-width: 95%">
+                </div>
+                
+                <!--The buying screen-->
+                <div class="center-text" id="buyScreen" style="display:none;">
+                    
+                    <button type="button" class="btn  btn-block custom-button" id="buyMiningPower"><span>Buy Mining Power </span><span id="powerCost"> </span></button>
+                    
+                    <button type="button" class="btn  btn-block custom-button" id="buyMinerHousing"><span>Buy Miner Housing </span><span id="minerHousingCost"> </span></button>
+                    
+                    <button style ="display:none" type="button" class="btn btn-block custom-button" id="buyMiner"><span>Buy Miner </span><span id="minerCost"> </span></button>
+                    
+                    <button style ="display:none" type="button" class="btn btn-block custom-button" id="buyCastle"><span>Buy Castle </span><span id="castleCost"> </span></button>
+                    
+                    <button style ="display:none" type="button" class="btn btn-block custom-button" id="buyCityPlaza"><span>Buy City Plaza </span><span id="cityPlazaCost"> </span></button> 
+                    
+                    <button style ="display:none" type="button" class="btn btn-block custom-button" id="buyBeard"><span>Buy Beard of Odin </span><span id="beardCost"> </span></button> 
+                    
+                    <button style ="display:none" type="button" class="btn btn-block custom-button" id="buyThrone"><span>Buy Throne of Zeus </span><span id="throneCost"> </span></button>
+                    
+                </div>
+                
+                <!--The castle screen-->
+                <div class="center-block" id="castleScreen" style="display:none;">
+                    <img id="castle1" src="img/castle1.png">
+                    <img id="castle2" src="img/castle2.png" style="display:none">
+                    <img id="castle3" src="img/castle3.png" style="display:none">        
+                </div> 
+                
+                <!--The gambling screen-->
+                <div class="center-text" id="gambleScreen" style="display:none;">
+                    
+                    <button type="button" class="btn  btn-block custom-button" ><span id="gamble100">Gamble 100 Gold </span></button>
+                    <button type="button" class="btn  btn-block custom-button" ><span id="gamble1000">Gamble 1000 Gold </span></button>
+                    <button type="button" class="btn  btn-block custom-button" ><span id="gamble2500">Gamble 2500 Gold </span></button>                    
+                    <button type="button" class="btn  btn-block custom-button" ><span id="gamble5000">Gamble 5000 Gold </span></button>
+                    
+                </div>                
+
+            
+            </div>
+
+   
+                        <!--The bottom navbar that can take you to home/buy/save-->   
+            <nav class="navbar-fixed-bottom navbar-inverse"> 
+                <div class="container">
+                    <div class="navbar-header">
+                        <h2 style="color: gold; font-family: fantasy; text-transform: none">iRule</h2>
+                    </div>
+                <ul class="nav navbar-nav" style="font-family: sans-serif">
+                    <li  class="active dropdown">
+                        <a class ="dropdown-toggle" data-toggle="dropdown" >Kingdom <span class="caret" style="transform: rotate(180deg)"></span></a>
+                        <ul class="dropdown-menu">
+                            <li id="kingdomLink" style="display:block">
+                                <a href='/kingdom'>Overview</a>
+                            </li>
+                            <li id="castleLink" style="display:none;">
+                                <a href='/castle'>Castle</a>
+                            </li>
+                            <li id="gambleLink" style="display:none">
+                                <a href='/gamble'>Gamble</a>
+                            </li>
+                        </ul>
+                    </li> 
+                    <li id="shopLink">
+                        <a href='/shop'>Shop</a>
+                    </li>
+                    <li id="mineLink" >
+                        <a href='/mine'>Mine</a>
+                    </li>
+                    
+                </ul>
+                </div>
+            </nav> 
+
+        </div>
+    
+                    <!--Required Scripts (Jquery, Bootstrap, Page.js for routing, Index)-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+
+    </body>
+</html>
